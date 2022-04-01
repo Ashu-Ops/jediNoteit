@@ -16,11 +16,11 @@ function Banner() {
 
                     <h2 className="info__title margin-btm"> 
 
-                        The Ultimate Writing App for Mac, iPad and iPhone assddassf
+                        The Ultimate Notes App for you personal notes and daily notes
                     </h2>
                     <p>
                         Powerful features and a pleasant, focused writing experience combined in one tool,
-                         made for people who love to write and write a lot — this is Ulysses.
+                         made for people who love to write and write a lot — this is Jedi Notes.
                     </p>
                     <button className='signup-btn pri-bg-color cur-pointer text-center'>Sign up </button>
                 </div>
