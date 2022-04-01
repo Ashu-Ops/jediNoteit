@@ -1,0 +1,33 @@
+.banner {
+    margin-top: 0.5rem;
+    background-image: linear-gradient(221deg, rgb(248, 244, 244), rgb(250, 250, 249));
+    align-items: center;
+    min-height: 40rem;
+    width: 120rem;
+}
+.banner__img {
+    height: 100%;
+    mix-blend-mode: multiply;
+    object-fit: cover;
+    width: 100%;
+}
+.banner__container {
+    font-weight: 400;
+    margin: 0 22.5rem;
+}
+.container__info{
+    width: 30rem;
+    height: 22rem;
+}
+.info__title {
+
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 4rem;
+}
+.signup-btn {
+    border: none;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding: 10px 3rem;
+}
