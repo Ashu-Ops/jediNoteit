@@ -1,3 +1,31 @@
+:root{
+
+  --pri-text-color:rgb(39, 39, 43) ;
+  --pri-color:#FFCC00;
+  
+
+}
+.pri-text-color{
+  color: var(--pri-text-color);
+}
+.pri-color{
+  color:var(--pri-color);
+}
+.pri-bg-color{
+  background-color: var(--pri-color);
+}
+.text-center{
+  text-align: center;
+}
+.gap-sm{
+  gap: 1rem;
+}
+.gap-lg{
+  gap: 4rem;
+}
+.cur-pointer{
+  cursor: pointer;
+}
 /* .App {
   text-align: center;
 }
