@@ -4,8 +4,11 @@ import Navbar from '../../components/navbar/Navbar';
 
 function Home() {
   return <>
+  <div className='overflow-hide'>
     <Navbar/>
     <Banner/>
+  </div>
+   
   </>
 }
 
