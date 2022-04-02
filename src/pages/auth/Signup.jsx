@@ -9,7 +9,7 @@ function Signup() {
                 <Link to="/"> 
                     <div className="nav-logo flex-center flex-col">
                         <i className="fas fa-jedi nav-logo-icon"></i>
-                        <span className="nav-logo-txt">Jedi Store</span>
+                        <span className="nav-logo-txt">Jedi Notes</span>
                     </div>
                 </Link>
             </div>
