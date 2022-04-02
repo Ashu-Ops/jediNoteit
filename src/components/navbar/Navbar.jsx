@@ -12,10 +12,10 @@ function Navbar() {
         </Link>                            
         <div className='menu__container gap-lg flex-space-btw '>
             <div className='menu__container_link cur-pointer'>
-                <Link className='login_link pri-text-color'   to="">Login</Link>
+                <Link className='login_link pri-text-color'to="/login">Login</Link>
             </div>
             <div className='menu__container_btn flex-center pri-bg-color '>
-                <button className='theme_btn cur-pointer'> <i class="fas fa-moon"></i> </button> 
+                <button className='theme_btn cur-pointer'> <i className="fas fa-moon"></i> </button> 
             </div>  
         </div>
       </nav>
