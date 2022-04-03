@@ -1,6 +1,7 @@
 .menu{
+   
     height: 4rem; 
-    padding: 0rem 4rem;
+    padding: 0rem 4rem 0rem 0.4rem;
 }
 .menu__link_logo{
     font-size : 3rem ;
@@ -28,4 +29,13 @@
 }
 .menu__container_link:hover{
     border-bottom: 4px solid var(--pri-color) ; 
+}
+.ham-icon{
+    border-radius :50%;
+    width : 3.5rem;
+    height : 3.5rem;
+    font-size:1.5rem; 
+}
+.ham:hover{
+    background-color: #F0F0F0;
 }

@@ -1,12 +1,14 @@
 
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Login() {
+export const Login=()=> {
+
+    const navigator = useNavigate();
   return <>
   
   <div className="flex-center height-vh-100 ">
-        <form className="form-auth flex-center flex-col bx-shadow ">
+        <form className="form-auth flex-center flex-col bx-shadow " onSubmit={()=>navigator("/mynotes")}>
             <div className="form-logo wd-100">
                 <Link to="/"> 
                     <div className="nav-logo flex-center flex-col ">
@@ -47,4 +49,3 @@ function Login() {
   </>
 }
 
-export default Login;

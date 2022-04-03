@@ -1,6 +1,17 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.App{
+  width: 100vw;
+  height: 100vh;
+}
+
+
 :root{
   --pri-text-color:rgb(39, 39, 43) ;
   --pri-color:#FFCC00;
+  --grey-shade:#5F6368;
 }
 .pri-text-color{
   color: var(--pri-text-color);
@@ -10,4 +21,7 @@
 }
 .pri-bg-color{
   background-color: var(--pri-color);
+}
+.grey-shade{
+  color:var(--grey-shade);
 }

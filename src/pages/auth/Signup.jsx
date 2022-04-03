@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-function Signup() {
+export const Signup =()=> {
   return <>
    <div className="flex-center height-vh-100">
         <form className="form-auth flex-center flex-col bx-shadow">
@@ -59,4 +59,3 @@ function Signup() {
   </>
 }
 
-export default Signup;
