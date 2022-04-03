@@ -35,10 +35,8 @@ const [ showSidebar , setShowSidebar ] = useState(false);
     const hamburgHandler = (e)=>{
         e.preventDefault();
         if(showSidebar===true){
-            
         setShowSidebar(false) ;
         }else{
-        
             setShowSidebar(true) ;
         }
         
@@ -49,10 +47,10 @@ const navigator = useNavigate();
 
   return <>
     <div className={ showSidebar ? "mini-sidebar" :"sidebar"  }>
-        <ul className='sidebarlist'>
-            <li className={ `row  ${showSidebar ? "" : " item-title"} `}  onClick={ hamburgHandler}> 
+        <ul className='sidebarlist grey-shade'>
+            <li className={ `row flex-center ${showSidebar ? "" : " item-title"} `}  onClick={ hamburgHandler}> 
                 <div className='side-icon' >
-                    <div className={` icon-div flex-center ${ showSidebar ? "item-icon" :"" }`} > 
+                    <div className={` icon-div flex-center cur-pointer ${ showSidebar ? "item-icon" :"" }`} > 
                         <FaBars />
                     </div>  
                 </div>
@@ -61,7 +59,7 @@ const navigator = useNavigate();
                 </div> 
             </li>        
             { data.map((item,key)=> <NavLink  className={ ({isActive})=> isActive ? "pri-bg-color" : "" } to={`${item.link}`} style={{ color:'inherit' }} key={key} > 
-                                        <li  className={ showSidebar ? "row" : "row  item-title"} > 
+                                        <li  className={ `row flex-center ${showSidebar ? "" : " item-title"} `}  > 
                                             <div className='side-icon'>  
                                                 <div className={` icon-div flex-center ${ showSidebar ? "item-icon" :"" }`} > {item.icon}  </div>   
                                             </div> 
