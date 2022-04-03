@@ -5,8 +5,8 @@ import './Navbar.css';
 
 function Navbar() {
   return <>
-    <nav className='menu flex-space-btw' >          
-        <Link className='menu__link gap-sm  pri-text-color text-center flex-center' to="">
+    <nav className='menu flex-space-btw bx-shadow' >          
+        <Link className='menu__link gap-sm  pri-text-color text-center flex-center' to="/">
             <i className='fas fa-jedi menu__link_logo pri-color ' ></i>
             <span className='menu__link_title text-center'>Jedi Notes</span>                              
         </Link>                            
