@@ -1,7 +1,7 @@
 import React from 'react'
 
-function NoteCard() {
+export const NoteCard =()=> {
   return (<></>)
 }
 
-export default NoteCard;
+// export default NoteCard;

@@ -1,14 +1,9 @@
 import React from 'react'
 import {  FaArchive } from 'react-icons/fa'
-import Navbar from '../../components/navbar/Navbar';
-import Sidebar from '../../components/sidebar/Sidebar';
 
-function Archive() {
+
+export const Archive =()=> {
   return <>
-  <Navbar/>
-  <div className='d-flex' >
-        <Sidebar/>
-
           <div className='wd-100'>
                   <div className='flex-center flex-col height-100 grey-shade'>
                     <div> <FaArchive size={"10rem"} /> </div>
@@ -16,9 +11,6 @@ function Archive() {
                   </div>      
 
           </div>
-
-  </div>
   </>
 }
 
-export default Archive;

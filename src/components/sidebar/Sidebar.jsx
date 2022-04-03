@@ -3,9 +3,10 @@ import "./Sidebar.css"
 import {  FaArchive , FaTrash , FaBars ,FaStickyNote} from 'react-icons/fa'
 import { MdLabel } from "react-icons/md"
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useSidebar } from '../../context/SidebarContext';
 
 
-function Sidebar() {
+export const Sidebar=()=> {
 
 const data = [
     {
@@ -30,34 +31,14 @@ const data = [
     },
 ]
 
-const [ showSidebar , setShowSidebar ] = useState(false);
-
-    const hamburgHandler = (e)=>{
-        e.preventDefault();
-        if(showSidebar===true){
-        setShowSidebar(false) ;
-        }else{
-            setShowSidebar(true) ;
-        }
-        
-    }
-    console.log(showSidebar);
+const { showSidebar  } = useSidebar();
 
 const navigator = useNavigate();
 
   return <>
     <div className={ showSidebar ? "mini-sidebar" :"sidebar"  }>
         <ul className='sidebarlist grey-shade'>
-            <li className={ `row flex-center ${showSidebar ? "" : " item-title"} `}  onClick={ hamburgHandler}> 
-                <div className='side-icon' >
-                    <div className={` icon-div flex-center cur-pointer ${ showSidebar ? "item-icon" :"" }`} > 
-                        <FaBars />
-                    </div>  
-                </div>
-                <div className={ showSidebar ?  "hidden ": "side-title" } > 
-                    Menu 
-                </div> 
-            </li>        
+           
             { data.map((item,key)=> <NavLink  className={ ({isActive})=> isActive ? "pri-bg-color" : "" } to={`${item.link}`} style={{ color:'inherit' }} key={key} > 
                                         <li  className={ `row flex-center ${showSidebar ? "" : " item-title"} `}  > 
                                             <div className='side-icon'>  
@@ -72,4 +53,3 @@ const navigator = useNavigate();
   </>
 }
 
-export default Sidebar;

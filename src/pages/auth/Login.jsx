@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-function Login() {
+export const Login=()=> {
 
     const navigator = useNavigate();
   return <>
@@ -49,4 +49,4 @@ function Login() {
   </>
 }
 
-export default Login;
+// export default Login;
