@@ -3,11 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars } from 'react-icons/fa';
 import { useSidebar } from '../../context/SidebarContext';
+import { useAuthorizer } from '../../context/AuthorizerContext';
 
 export const Navbar=()=> {
 
     const { hamburgHandler } = useSidebar();
     const { pathname } = useLocation();
+    const { authState , authDispatch } = useAuthorizer();
 
   return <>
     <nav className='menu flex-space-btw bx-shadow' >  
@@ -24,9 +26,15 @@ export const Navbar=()=> {
     </div>
 
         <div className='menu__container gap-lg flex-space-btw '>
-            <div className='menu__container_link cur-pointer'>
-                <Link className='login_link pri-text-color'to="/login">Login</Link>
-            </div>
+
+            { !authState.loginStatus? 
+                    <div className='menu__container_link cur-pointer'>
+                        <Link className='login_link pri-text-color'to="/login">Login</Link>
+                    </div>:
+                    <div className='menu__container_link cur-pointer'>
+                        <Link className='login_link pri-text-color'to="/" onClick={()=> authDispatch({ type:'LOGOUT' })} >LogOut</Link>
+                    </div>
+            }
             <div className='menu__container_btn flex-center pri-bg-color '>
                 <button className='theme_btn cur-pointer'> <i className="fas fa-moon"></i> </button> 
             </div>  

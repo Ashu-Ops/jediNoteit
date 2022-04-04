@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuthorizer } from '../../context/AuthorizerContext';
 import './Banner.css';
 
 function Banner() {
   const navigator=useNavigate();
+  const {authState} =useAuthorizer();
   return <>
   <div className="banner  d-flex pri-text-color pos-rel">
         <img className="banner__img pos-abt" src="./assets/hero.jpg" alt="noteimg" />
@@ -16,7 +18,12 @@ function Banner() {
                         Powerful features and a pleasant, focused writing experience combined in one tool,
                          made for people who love to write and write a lot — this is Jedi Notes.
                     </p>
-                    <button className='signup-btn pri-bg-color cur-pointer text-center' onClick={()=>navigator("/signup")}>Sign up </button>
+
+                    { !authState.loginStatus?
+                        <button className='signup-btn pri-bg-color cur-pointer text-center' onClick={()=>navigator("/signup")}>Sign up </button>
+                        :
+                        <button className='signup-btn pri-bg-color cur-pointer text-center' onClick={()=>navigator("/myNotes")}>Go to MyNotes </button>
+                    }
                 </div>
         </div>
     </div>
