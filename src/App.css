@@ -25,3 +25,34 @@ body{
 .grey-shade{
   color:var(--grey-shade);
 }
+
+
+
+
+.color-white{
+  background-color: #ffff;
+}
+.color-red{
+  background-color: #F28B82 ;
+}
+
+.color-orange{
+  background-color: #F7D4C7 ;
+}
+
+.color-yellow{
+  background-color: #FFF475;
+}
+
+.color-green{
+  background-color: #CCFF90 ;
+}
+.color-teal{
+  background-color: #A7FFEB ;
+}
+.color-blue{
+  background-color: #AECBFA ;
+}
+.color-purple{
+  background-color: #D7AEFB ;
+}

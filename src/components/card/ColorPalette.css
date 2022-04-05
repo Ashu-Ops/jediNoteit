@@ -1,0 +1,19 @@
+.palette-icon-div{
+    position:absolute;
+    border-radius:10px;
+    width:10rem;
+    height:6rem;  
+    box-shadow:rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+    justify-content:center;
+    align-items:center;
+}
+.palette-color-div{
+    cursor:pointer;
+    border:1px solid black;
+    width:2rem;
+    height:2rem;
+    border-radius:50%;
+}

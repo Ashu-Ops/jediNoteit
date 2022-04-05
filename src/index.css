@@ -13,3 +13,8 @@
 .overflow-hide{
   overflow: hidden;
 }
+.note-btn{
+  background-color: transparent;
+
+  cursor: pointer;
+}
