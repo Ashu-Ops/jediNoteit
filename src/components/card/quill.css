@@ -1,0 +1,35 @@
+
+
+
+.app {
+    
+    
+    width: 100%;
+    outline:none;
+   
+  }
+  
+  .app .ql-container { 
+    
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  border: none;
+ 
+  
+    
+  }
+  
+  /* Snow Theme */
+  .app .ql-snow.ql-toolbar {
+    display: block;
+    border:none;
+    outline: none;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+  }
+  
+  .app .ql-editor {
+    border: none;
+    outline: none;
+    min-height: 3rem;
+  }
