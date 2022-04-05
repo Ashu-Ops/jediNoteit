@@ -20,7 +20,7 @@ function LabelCard() {
                     setLabel('');
                 }
     }
-    console.log(labelArray);
+    
 
     const addToTags =(e)=>{
         console.log(e.target.value);
@@ -31,7 +31,7 @@ function LabelCard() {
 
             setNote({...note,tags: note.tags.filter( (item )=> item !==e.target.value )  })
         }
-        console.log(tagStatus);
+        
     }
     const [ showLabel ,setShowLabel ] = useState(false);
     const displayLabelHandler=()=>{
