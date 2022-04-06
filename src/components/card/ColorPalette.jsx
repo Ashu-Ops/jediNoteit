@@ -15,7 +15,7 @@ const colorTray =[
     "color-blue",
     "color-purple",
 ]
-    const { bgColor,setBgColor} = useNotes();
+    const { bgColor,setBgColor,setNote,note} = useNotes();
     const [ showColor ,setShowColor ] = useState(false);
     const displayHandler=()=>{
         if(showColor===true){
@@ -31,8 +31,8 @@ const colorTray =[
        { showColor && <div className='palette-icon-div'>
                 
             { 
-            colorTray.map((color,index)=> <div key={index} className={` palette-color-div ${ color }`} 
-            onClick={()=>setBgColor(color)}  >
+            colorTray.map((item,index)=> <div key={index} className={` palette-color-div ${ item }`} 
+            onClick={()=>{setBgColor(item); setNote({...note, color: item })  }}  >
             </div>) 
              }                
                                            

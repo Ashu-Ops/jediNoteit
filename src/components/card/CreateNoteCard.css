@@ -42,3 +42,8 @@
     border-radius:8px;
     background-color: lightgray ;
 }
+.note-pin{
+    top:1rem;
+    right:1rem;
+    font-size:1.5rem;
+}
