@@ -18,3 +18,7 @@
 
   cursor: pointer;
 }
+.d-flex-wrap{
+  display:flex;
+  flex-wrap:wrap;
+}
