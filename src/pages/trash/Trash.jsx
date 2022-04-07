@@ -8,10 +8,10 @@ import './Trash.css';
 
 export const Trash =()=> {
 
-  const { noteList } = useNotes();
+  const { finalFilterList } = useNotes();
   const { authState } =useAuthorizer();
 
-  const trashNoteList = noteList ? noteList.filter((item)=>item.trashStatus === true ) :[];
+  const trashNoteList = finalFilterList ? finalFilterList.filter((item)=>item.trashStatus === true ) :[];
 
   console.log("trashnote",trashNoteList)
 

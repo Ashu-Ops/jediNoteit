@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
+import { useNotes } from '../../context/NotesContext';
 import './LabelCard.css';
 
 function LabelCard( {  noteItem , setNoteItem }) {
     const [ label , setLabel ] = useState('');
-    const [ labelArray , setLabelArray ] =useState([]);
+    const { labelArray , setLabelArray } = useNotes();
     
 
     const labelHandler =(e)=>{

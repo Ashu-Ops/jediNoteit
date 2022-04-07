@@ -1,12 +1,13 @@
 import React ,{ useState } from 'react'
 import {FaEdit ,FaTrash ,FaArchive,FaTrashRestore ,FaTrashAlt} from 'react-icons/fa';
-import { MdArchive }  from 'react-icons/md';
+import { MdUnarchive }  from 'react-icons/md';
 import { BsPinFill , BsPin } from "react-icons/bs";
 import { useNotes } from '../../context/NotesContext';
 import axios from 'axios';
 import { useAuthorizer } from '../../context/AuthorizerContext';
 import './NoteCard.css';
 import EditNoteCard from './EditNoteCard';
+import { useLocation } from 'react-router-dom';
 
 
 export const NoteCard =( {noteItem }  )=> {
@@ -14,8 +15,8 @@ export const NoteCard =( {noteItem }  )=> {
   // const { _id , title ,description ,pinStatus ,color, tags, priority } = noteitem;
   console.log(noteItem.title);
   const { authState } = useAuthorizer();
-  const { setNoteList } = useNotes();
-  
+  const { setNoteList, setArchiveList } = useNotes();
+  const { pathname } =useLocation();
 
   const updateNoteItem = async(changedNote,id ) =>{
     console.log( " changedNote " , changedNote ) ;
@@ -41,7 +42,29 @@ export const NoteCard =( {noteItem }  )=> {
     }
   }
 
+  const addToArchive = async(noteItem,id) => {
+    console.log("archive",id)
+    try {
+      const response = await axios.post(`/api/notes/archives/${id}`,{note:noteItem},{headers:{authorization:authState.encodedToken}})
+      console.log("archive",response);
+      setNoteList(response.data.notes);
+      setArchiveList(response.data.archives);
+    } catch (error) {
+      console.log(error);
+    }
 
+  }
+  const restoreFromArchive = async(id) => {
+
+    try {
+      const response = await axios.post(`/api/archives/restore/${id}`,{},{headers:{authorization:authState.encodedToken}})
+      console.log("restore",response);
+      setNoteList(response.data.notes);
+      setArchiveList(response.data.archives);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   const pinStatusHandler = (noteItem , id ) => {
@@ -52,7 +75,7 @@ export const NoteCard =( {noteItem }  )=> {
 
     updateNoteItem({...noteItem , trashStatus : !noteItem.trashStatus } , id);
   }
-
+ 
   const [ showEdit , setShowEdit ] = useState(false);
 
 
@@ -83,7 +106,12 @@ export const NoteCard =( {noteItem }  )=> {
             {noteItem.priority }
             </div>
             <div className=' d-flex  gap-sm '>
-              <FaArchive size={"1.1rem"}/>
+          { pathname === "/archive" ?
+            <MdUnarchive className='cur-pointer' size={"1.1rem"} onClick={()=>restoreFromArchive(noteItem._id)} />:
+              <FaArchive className='cur-pointer' size={"1.1rem"} onClick={()=>addToArchive(noteItem,noteItem._id)} />
+          }
+              
+
               {noteItem.trashStatus&&<FaTrashAlt className='cur-pointer' onClick={()=>deleteNote(noteItem._id) }  />}
            { noteItem.trashStatus ? <FaTrashRestore className='cur-pointer' onClick={()=> tagStatusHandler(noteItem,noteItem._id)} /> : <FaTrash className='cur-pointer' size={"1.1rem"}  onClick={()=> tagStatusHandler(noteItem,noteItem._id)} /> }  
             </div>

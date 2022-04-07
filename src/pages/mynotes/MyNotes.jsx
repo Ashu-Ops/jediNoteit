@@ -1,20 +1,25 @@
 
-import React from 'react'
+import React ,{useState} from 'react'
 import {CgNotes} from 'react-icons/cg'
 import CreateNoteCard from '../../components/card/CreateNoteCard';
 import { NoteCard } from '../../components/card/NoteCard';
 import { useAuthorizer } from '../../context/AuthorizerContext';
 import { useNotes } from '../../context/NotesContext';
-
+import { FaFilter } from 'react-icons/fa';
+import Filter from '../../components/filter/Filter';
+import './MyNotes.css'
 
 export const  MyNotes=()=> {
   const { authState } = useAuthorizer();
-  const { noteList } =useNotes(); 
-    const filterNoteList = noteList ? noteList.filter((item) => item.trashStatus === false) : [] ;
+  const { finalFilterList } =useNotes(); 
+    const filterNoteList = finalFilterList ? finalFilterList.filter((item) => item.trashStatus === false) : [] ;
     const pinNoteList = filterNoteList ? filterNoteList.filter((item) => item.pinStatus === true ): [] ;
     const otherNoteList = filterNoteList ? filterNoteList.filter((item) => item.pinStatus === false ):[] ;
 
-  console.log("from notes", noteList );
+  console.log("from notes", finalFilterList );
+  const [showFilter, setShowFilter] =useState(false);
+
+
 
   return<>
          { !authState.loginStatus ? <div className='wd-100' >
@@ -26,8 +31,17 @@ export const  MyNotes=()=> {
 
           </div> :
           <div  className="wd-100 " >
-
-            <CreateNoteCard/>
+            <div className='d-flex' style={{ justifyContent:"center" }}>   
+              <CreateNoteCard/>
+              <div className='filter-icon'> 
+                <FaFilter size={"1.5rem"} color={"gray"}  onClick={ ()=>setShowFilter((prev)=> !prev) } />
+                 
+               
+              </div>
+            {showFilter && <div className='filter-container' > <Filter /> </div> } 
+              
+            </div>  
+           
       
                             <div className='wd-100' >
 
