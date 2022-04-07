@@ -16,7 +16,7 @@ import axios from 'axios';
 
 function CreateNoteCard() {
 
-    const { note,bgColor,setBgColor,setNote , noteList , setNoteList ,initialNote} =useNotes();
+    const { note,setNote , noteList , setNoteList ,initialNote} =useNotes();
     const { authState } =useAuthorizer();
 
     
@@ -26,22 +26,22 @@ const addNote = async (note)=>{
         console.log("post note",response.data.notes);
         setNoteList(response.data.notes);
         setNote(initialNote);
-        setBgColor("color-white");
+
 
     } catch (error) {
        console.error(error);
     }
         
-}
+    }
 
   return <>
   
     <div className='create-note' >
 
-                  <div className={`create-note-container pos-rel ${bgColor}`}>
+                  <div className={`create-note-container pos-rel ${note.color}`}>
                      
                         <div> 
-                            <input className={`note-title ${bgColor} `} type="text" placeholder="  Take notes....." value={note.title} onChange={(e)=>setNote({...note,title:e.target.value })} />
+                            <input className={`note-title ${note.color} `} type="text" placeholder="  Take notes....." value={note.title} onChange={(e)=>setNote({...note,title:e.target.value })} />
                         </div>
 
                         <div className='app'>
@@ -56,9 +56,8 @@ const addNote = async (note)=>{
 
                             <div className='note-property'> 
                                 
-                                <LabelCard/>
+                                <LabelCard noteItem={note} setNoteItem={setNote}  />
 
-                                {/* drop down for priority */}
                                 <div>
                                     <label htmlFor="tagDropdown">Priority :</label>
                                     <select name="tagDropdown" value={note.priority} onChange={(e)=>setNote({...note,priority:e.target.value})}>
@@ -70,12 +69,12 @@ const addNote = async (note)=>{
                                     </select>
                                 </div>
 
-                                <ColorPalette/>
+                                <ColorPalette noteItem={note} setNoteItem={setNote}  />
                                   
                             </div>
 
                             <div className='note-property' >
-                                <div><button className='note-btn' onClick={()=>addNote(note)} > add</button></div>
+                                <div><button className='note-btn' onClick={()=>{addNote(note);  setNote(initialNote);  }} > add</button></div>
                                 <div><button className='note-btn'> close </button></div>
                             </div>
                             
