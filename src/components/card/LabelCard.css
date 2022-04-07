@@ -2,6 +2,7 @@
     position:absolute;
     border:1px solid black;
     background-color:white;
+    z-index: 5;
 }
 .label-width{
     width: 10rem;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{ useState } from 'react'
 import {FaEdit ,FaTrash ,FaArchive,FaTrashRestore ,FaTrashAlt} from 'react-icons/fa';
 import { MdArchive }  from 'react-icons/md';
 import { BsPinFill , BsPin } from "react-icons/bs";
@@ -6,6 +6,8 @@ import { useNotes } from '../../context/NotesContext';
 import axios from 'axios';
 import { useAuthorizer } from '../../context/AuthorizerContext';
 import './NoteCard.css';
+import EditNoteCard from './EditNoteCard';
+
 
 export const NoteCard =( {noteItem }  )=> {
 
@@ -51,9 +53,18 @@ export const NoteCard =( {noteItem }  )=> {
     updateNoteItem({...noteItem , trashStatus : !noteItem.trashStatus } , id);
   }
 
+  const [ showEdit , setShowEdit ] = useState(false);
+
+
+  const editHandler=(e)=>{
+    e.preventDefault();
+    setShowEdit(true);
+  }
+
+
 
   return <>
-    
+   
   
     <div className={` note-card-container flex-col pos-rel gap-sm ${noteItem.color}`}>
         <div><h3>{noteItem.title}</h3></div>
@@ -66,7 +77,10 @@ export const NoteCard =( {noteItem }  )=> {
 
         <div className='note-card-icon-container' >
             <div>
-              <FaEdit size={"1.1rem"}/>
+              <FaEdit className='cur-pointer' size={"1.1rem"} onClick={(e)=> editHandler(e)}  />
+            </div>
+            <div className="note-card-tag">
+            {noteItem.priority }
             </div>
             <div className=' d-flex  gap-sm '>
               <FaArchive size={"1.1rem"}/>
@@ -78,7 +92,9 @@ export const NoteCard =( {noteItem }  )=> {
              {noteItem.pinStatus?  <BsPinFill onClick={() => pinStatusHandler(noteItem,noteItem._id) }  /> :<BsPin onClick={() => pinStatusHandler(noteItem,noteItem._id) } /> }
         </div>
     </div>
-  
+  { showEdit && <div className='note-edit-modal' >
+     <div className='note-edit-notecard'><EditNoteCard noteItem={noteItem} setShowEdit={setShowEdit} updateNoteItem={updateNoteItem }   /> </div> 
+    </div>}
   </>
 }
 

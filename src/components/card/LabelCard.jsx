@@ -1,12 +1,10 @@
 import React,{useState} from 'react'
-import { useNotes } from '../../context/NotesContext';
 import './LabelCard.css';
 
-function LabelCard() {
+function LabelCard( {  noteItem , setNoteItem }) {
     const [ label , setLabel ] = useState('');
-    const { note ,setNote ,labelArray , setLabelArray  } =useNotes();
-
-
+    const [ labelArray , setLabelArray ] =useState([]);
+    
 
     const labelHandler =(e)=>{
         const value = e.target.value;
@@ -24,12 +22,12 @@ function LabelCard() {
 
     const addToTags =(e)=>{
         console.log(e.target.value);
-        const tagStatus = note.tags.includes(e.target.value);
+        const tagStatus = noteItem.tags.includes(e.target.value);
         if(!tagStatus){
-            setNote({...note,tags:[...note.tags,e.target.value]});
+            setNoteItem({...noteItem,tags:[...noteItem.tags,e.target.value]});
         }else{
 
-            setNote({...note,tags: note.tags.filter( (item )=> item !==e.target.value )  })
+            setNoteItem({...noteItem,tags: noteItem.tags.filter( (item )=> item !==e.target.value )  })
         }
         
     }
@@ -59,7 +57,7 @@ function LabelCard() {
                             </div>
                             <div>
                                 <ul>
-                                    {labelArray.map((label,index)=><li key={index}><label><input type="checkbox" checked={note.tags.includes(label)} value={label} onChange={addToTags} /> {label} </label></li>  ) }  
+                                    {labelArray.map((label,index)=><li key={index}><label><input type="checkbox" checked={noteItem.tags.includes(label)} value={label} onChange={addToTags} /> {label} </label></li>  ) }  
                                 </ul>
                             </div>
                             <div >

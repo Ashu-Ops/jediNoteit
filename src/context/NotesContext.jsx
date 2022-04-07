@@ -11,7 +11,7 @@ const NotesProvider = ({children})=>{
         title:"",
         description:"",
         priority:"none",
-        color:"",
+        color:"color-white",
         pinStatus:false,
         tags:[],
         createdDate: "",
@@ -19,8 +19,7 @@ const NotesProvider = ({children})=>{
     }
     
     const [ note ,setNote ] =useState(initialNote);
-    const [ labelArray , setLabelArray ] =useState([]);
-    const [bgColor,setBgColor] = useState("color-white");
+    
     const [noteList , setNoteList] = useState([]);
 
     console.log(note);
@@ -45,7 +44,7 @@ const NotesProvider = ({children})=>{
 
 
     return<>
-        <NotesContext.Provider value={{ note ,setNote , labelArray , setLabelArray,bgColor,setBgColor ,noteList , setNoteList ,initialNote }}>
+        <NotesContext.Provider value={{ note ,setNote , noteList , setNoteList ,initialNote }}>
             {children}
         </NotesContext.Provider>
     </>
