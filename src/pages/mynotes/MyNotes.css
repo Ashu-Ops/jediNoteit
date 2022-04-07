@@ -1,0 +1,12 @@
+.filter-icon{
+    width:10rem;
+    margin-top:5rem;
+    margin-left:1rem;  
+}
+.filter-container{
+    position:relative;
+    top:7rem;
+    right:10rem;
+    z-index:7;
+    background-color:white; 
+}

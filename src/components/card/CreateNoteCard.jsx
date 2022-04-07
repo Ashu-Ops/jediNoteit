@@ -16,7 +16,7 @@ import axios from 'axios';
 
 function CreateNoteCard() {
 
-    const { note,setNote , noteList , setNoteList ,initialNote} =useNotes();
+    const { note,setNote , setNoteList ,initialNote} =useNotes();
     const { authState } =useAuthorizer();
 
     
